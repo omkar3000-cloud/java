@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Multithread {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        
+        Square squareTask = new Square(number);
+        Thread squareThread = new Thread(squareTask);
+        squareThread.start();
+        scanner.close();
+    }
+}
+
+class Square implements Runnable {
+    int x;
+
+    Square(int n) {
+        x = n;
+    }
+
+    public void run() {
+        int sqr = x * x;
+        System.out.println("Square: " + sqr);
+    }
+}
