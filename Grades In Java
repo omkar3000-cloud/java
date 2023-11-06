@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Grades {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the score: ");
+        int score = scanner.nextInt();
+        
+        int key = score / 10;
+        switch (key) {
+            case 0, 1, 2, 3: {
+                System.out.println("Fail");
+                break;
+            }
+            case 4: {
+                System.out.println("Pass");
+                break;
+            }
+            case 5: {
+                System.out.println("2nd class");
+                break;
+            }
+            case 6: {
+                System.out.println("1st Class");
+                break;
+            }
+            case 7, 8, 9: {
+                System.out.println("Distinction");
+                break;
+            }
+            default: {
+                System.out.println("Invalid");
+                break;
+            }
+        }
+        
+        scanner.close();
+    }
+}
