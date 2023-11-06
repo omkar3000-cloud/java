@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Area {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        GetArea g = new GetArea();
+
+        System.out.println("Select a shape to calculate area:");
+        System.out.println("1. Circle");
+        System.out.println("2. Triangle");
+        System.out.println("3. Square");
+        System.out.println("4. Rectangle");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1: {
+                System.out.print("Enter the radius of the circle: ");
+                double radius = scanner.nextDouble();
+                System.out.println("Circle Area: " + g.area(radius));
+                break;
+            }
+            case 2: {
+                System.out.print("Enter the base of the triangle: ");
+                double base = scanner.nextDouble();
+                System.out.print("Enter the height of the triangle: ");
+                double height = scanner.nextDouble();
+                System.out.println("Triangle Area: " + g.area(base, height));
+                break;
+            }
+            case 3: {
+                System.out.print("Enter the side length of the square: ");
+                int sideLength = scanner.nextInt();
+                System.out.println("Square Area: " + g.area(sideLength));
+                break;
+            }
+            case 4: {
+                System.out.print("Enter the length of the rectangle: ");
+                int length = scanner.nextInt();
+                System.out.print("Enter the width of the rectangle: ");
+                int width = scanner.nextInt();
+                System.out.println("Rectangle Area: " + g.area(length, width));
+                break;
+            }
+            default: {
+                System.out.println("Invalid choice!");
+            }
+        }
+
+        scanner.close();
+    }
+}
+
+class GetArea {
+    double area(double r) {
+        return 3.14 * r * r;
+    }
+
+    double area(double base, double height) {
+        return 0.5 * base * height;
+    }
+
+    int area(int len, int wid) {
+        return len * wid;
+    }
+
+    int area(int a) {
+        return a * a;
+    }
+}
